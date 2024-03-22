@@ -199,6 +199,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 102403535621624851, guid: cc4b478f171cb9e4ab49408621f71969, type: 3}
+      propertyPath: m_Size.x
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 102403535621624851, guid: cc4b478f171cb9e4ab49408621f71969, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 102403535621624851, guid: cc4b478f171cb9e4ab49408621f71969, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -422031376, guid: 11a60c4866e21ab48a201dbd6b7d33e2, type: 3}
+    - target: {fileID: 102403535621624851, guid: cc4b478f171cb9e4ab49408621f71969, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2778424393035458213, guid: cc4b478f171cb9e4ab49408621f71969, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -348,6 +364,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3040990384576993405, guid: 034ab8d09cc690749bc04fd93ef4ed44, type: 3}
+      propertyPath: m_Size.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040990384576993405, guid: 034ab8d09cc690749bc04fd93ef4ed44, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040990384576993405, guid: 034ab8d09cc690749bc04fd93ef4ed44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1040764930, guid: ec2d3d6f575dd29419cd51a7a56638bd, type: 3}
+    - target: {fileID: 3040990384576993405, guid: 034ab8d09cc690749bc04fd93ef4ed44, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6521954869020373470, guid: 034ab8d09cc690749bc04fd93ef4ed44, type: 3}
       propertyPath: m_Name
       value: Flash
@@ -405,6 +437,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 622536482325163574, guid: ee002408978c1c84d95792042d3696a7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 622536482325163574, guid: ee002408978c1c84d95792042d3696a7, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 622536482325163574, guid: ee002408978c1c84d95792042d3696a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1586957012, guid: d8662b2b872c0ae4f93921560f5fa570, type: 3}
+    - target: {fileID: 622536482325163574, guid: ee002408978c1c84d95792042d3696a7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1289424856527680304, guid: ee002408978c1c84d95792042d3696a7, type: 3}
       propertyPath: m_Name
       value: RainDrop
@@ -466,6 +514,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Phone
       objectReference: {fileID: 0}
+    - target: {fileID: 4783231925290789014, guid: 90c2bcfc78766c34a84f70b294cfc2c3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783231925290789014, guid: 90c2bcfc78766c34a84f70b294cfc2c3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783231925290789014, guid: 90c2bcfc78766c34a84f70b294cfc2c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1729308365, guid: bc6796656d51c274481eee11cf183f3d, type: 3}
+    - target: {fileID: 4783231925290789014, guid: 90c2bcfc78766c34a84f70b294cfc2c3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7061535222715336316, guid: 90c2bcfc78766c34a84f70b294cfc2c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6
@@ -519,6 +583,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2662870140855676843, guid: 3a53ff00ec1ebe541b091731a473b380, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662870140855676843, guid: 3a53ff00ec1ebe541b091731a473b380, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971250974015200879, guid: 3a53ff00ec1ebe541b091731a473b380, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 569590740, guid: 4dc06bd277b6c63408df002d36d9cd5d, type: 3}
     - target: {fileID: 5752561503040634104, guid: 3a53ff00ec1ebe541b091731a473b380, type: 3}
       propertyPath: m_Pivot.x
       value: 0

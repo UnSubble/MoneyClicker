@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc6796656d51c274481eee11cf183f3d
+guid: 682db031d8a2fcc4c93ae91940eef400
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: phone_0
+      name: cave_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 0
         y: 0
-        width: 36
-        height: 64
+        width: 64
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68d6f8dd91c5aa54f894bedc95f2fa24
-      internalID: 1729308365
+      spriteID: 28d85ce5a3fbb8643ab99f1146c08ba0
+      internalID: -1753878205
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      phone_0: 1729308365
+      cave_0: -1753878205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
