@@ -4,8 +4,8 @@ public interface MoneyManager
     public NumberFormat GetCurrentFormat();
     
     public string GetFormattedMoney();
-    
-    public decimal GetMoney();
+
+    public string GetTotalMoney();
     
     public void AddBuilding(Building building);
 

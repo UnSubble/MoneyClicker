@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AbstractBuilding : MonoBehaviour, Building
@@ -7,6 +5,9 @@ public class AbstractBuilding : MonoBehaviour, Building
     protected decimal _producedMoney;
     protected decimal _capacity;
     protected NumberFormat _currentFormat;
+    [SerializeField]
+    protected int _maxLevel;
+    protected int _currentLevel;
 
     protected void Update()
     {
@@ -18,12 +19,12 @@ public class AbstractBuilding : MonoBehaviour, Building
 
     public NumberFormat GetFormat()
     {
-        return 0;
+        return _currentFormat;
     }
 
     public decimal GetMoney()
     {
-        return 0;
+        return _producedMoney;
     }
 
     public decimal GetNTimesUpgradeCost(int times)
@@ -43,11 +44,12 @@ public class AbstractBuilding : MonoBehaviour, Building
 
     private bool CheckFormatOverflow()
     {
-        return false;
+        string[] splitted = _producedMoney.ToString().Split('.');
+        return splitted[0].Length > 3;
     }
 
     private void UpdateFormat()
     {
-       
+
     } 
 }

@@ -17,14 +17,9 @@ public class MoneyManagerImpl : MoneyManager
         return 0;
     }
 
-    public string GetFormattedMoney()
+    public string GetTotalMoney()
     {
         return null;
-    }
-
-    public decimal GetMoney()
-    {
-        return 0;
     }
 
     public bool UpgradeBuilding(Building building)
