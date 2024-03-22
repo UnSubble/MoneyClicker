@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: StringTable
   m_TableCollectionNameGuidString: cb7c9433ea6c70346bfc73b4ab7084b9
-  m_Entries: []
+  m_Entries:
+  - m_Id: 61401677824
+    m_Key: currency
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36410938834944
+    m_Key: money
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

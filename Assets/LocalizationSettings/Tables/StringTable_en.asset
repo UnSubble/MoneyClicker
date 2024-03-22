@@ -17,7 +17,15 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: cb7c9433ea6c70346bfc73b4ab7084b9, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 61401677824
+    m_Localized: $
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36410938834944
+    m_Localized: 'Current Money:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
