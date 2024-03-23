@@ -2,6 +2,13 @@ using System;
 
 public class BasicFormatter : Formatter
 {
+    private string[] _numberFormatStrings;
+
+    public BasicFormatter()
+    {
+        _numberFormatStrings = new string[] {"", "K", "M", "B", "T", "Q", "Sx", "Sp", "Oc"};
+    }
+
     public NumberFormat Format(ref string money, NumberFormat numberFormat)
     {
         Objects.RequireNotNull(money);
@@ -24,5 +31,10 @@ public class BasicFormatter : Formatter
         numberFormat = Format(ref moneyStr, numberFormat);
         money = Convert.ToDecimal(moneyStr);
         return numberFormat;
+    }
+
+    public string NumberFormatToStr(NumberFormat numberFormat)
+    {
+        return _numberFormatStrings[(int)numberFormat % 3];
     }
 }

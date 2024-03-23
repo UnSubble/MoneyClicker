@@ -31,4 +31,8 @@ public class MoneyManagerImpl : MoneyManager
         return null;
     }
 
+    public Formatter GetFormatter()
+    {
+        return _formatter;
+    }
 }

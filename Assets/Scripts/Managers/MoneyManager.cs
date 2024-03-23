@@ -10,4 +10,6 @@ public interface MoneyManager
     public void AddBuilding(Building building);
 
     public bool UpgradeBuilding(Building building);
+
+    public Formatter GetFormatter();
 }

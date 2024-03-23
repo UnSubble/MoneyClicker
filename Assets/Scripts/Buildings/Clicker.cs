@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Clicker : AbstractBuilding
 {
-    private void Update()
+    private new void Update()
     {
         base.Update();
     }

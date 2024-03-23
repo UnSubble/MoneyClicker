@@ -51,5 +51,10 @@ public class AbstractBuilding : MonoBehaviour, Building
     private void UpdateFormat()
     {
 
-    } 
+    }
+
+    public decimal GetCapacity()
+    {
+        return _capacity;
+    }
 }
