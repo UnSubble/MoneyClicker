@@ -26,4 +26,9 @@ public class MoneyManagerImpl : MoneyManager
     {
         return false;
     }
+    public string GetFormattedMoney()
+    {
+        return null;
+    }
+
 }
