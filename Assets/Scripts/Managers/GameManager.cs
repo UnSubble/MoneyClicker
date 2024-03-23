@@ -50,4 +50,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public string GetMoney()
+    {
+        return null;
+    }
+
+    public NumberFormat GetNumberFormat()
+    {
+        return NumberFormat.NATURAL;
+    }
 }

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clicker: {fileID: 0}
-  _textPopupPoolCount: 7
+  _textPopupPoolCount: 20
   _textPopupPrefab: {fileID: 5239856001533505107, guid: 107325237de136e498eeec847bd9a150, type: 3}
   _textPopupParent: {fileID: 0}
   _pool: {fileID: 0}
