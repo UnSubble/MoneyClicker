@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AbstractBuilding : MonoBehaviour, Building
+public abstract class AbstractBuilding : MonoBehaviour, Building
 {
     protected decimal _producedMoney;
     protected decimal _capacity;
