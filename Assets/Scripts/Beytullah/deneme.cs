@@ -12,6 +12,8 @@ public class Deneme : MonoBehaviour
 
     float electricbill = 0, coincounter = 0, cooldown = 0;
 
+    bool isclicker;
+
     void Start()
     {
 
@@ -32,7 +34,11 @@ public class Deneme : MonoBehaviour
             electricbill++;
             cooldown = Time.time;
         }
+
+
         
+        
+
     }
 
     public void Reset()
@@ -49,9 +55,12 @@ public class Deneme : MonoBehaviour
     }
 
     
-    
+     
 
-            
+
+
+
+
 
 
 

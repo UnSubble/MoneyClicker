@@ -3,11 +3,11 @@ public class MoneyManagerImpl : MoneyManager
     private Formatter _formatter;
     private NumberFormat _currentFormat;
 
-    public MoneyManagerImpl()
-    {
-        _service = GameManager.Instance.Service;
-        _currentFormat = _service.getNumberFormat();
-    }
+    //public MoneyManagerImpl()
+    //{
+    //    _service = GameManager.Instance.Service;
+    //    _currentFormat = _service.getNumberFormat();
+    //}
 
     public MoneyManagerImpl(Formatter formatter)
     {

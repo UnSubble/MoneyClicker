@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0370395c8979fbd4f90c39f1aeaa9a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicker: {fileID: 0}
+  _clicker: {fileID: 4404488554039219899, guid: 8ebbe745358b56042bd1c4f1ffabb7d5, type: 3}
   _textPopupPoolCount: 20
   _textPopupPrefab: {fileID: 5239856001533505107, guid: 107325237de136e498eeec847bd9a150, type: 3}
-  _textPopupParent: {fileID: 0}
-  _pool: {fileID: 0}
-  _eventHandler: {fileID: 0}
+  _textPopupParent: {fileID: 2831571061734043303, guid: f9239fd3505f4714b938eb0c924f8b39, type: 3}
+  _pool: {fileID: 4392215807566306893, guid: 1701a110321ad1e4993e93648da5fed6, type: 3}
+  _eventHandler: {fileID: 38391703058004398, guid: 40728fd377e75dd4e94e3101c36946e3, type: 3}
