@@ -5,7 +5,7 @@ using UnityEngine;
 public class OnMouseClickListener : MonoBehaviour
 {
     private TextPopup _textPopup;
-    private bool _isCollide;
+    private bool _isCollide,_isbill;
 
     private void Start()
     {
@@ -22,6 +22,13 @@ public class OnMouseClickListener : MonoBehaviour
             Event event_ = new MoneyClickedEvent(_textPopup.GetType(), clicker.GetCapacity().ToString(), clicker.GetFormat());
             GameManager.Instance.EventHandler.Enqueue(event_);
         }
+
+        if(Input.GetMouseButtonDown(0) && _isbill)
+        {
+            AbstractBill bill = GameManager.Instance.AbstractBill;
+            Event _event = new BillEvent(bill);
+            GameManager.Instance.EventHandler.Enqueue(_event);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +36,10 @@ public class OnMouseClickListener : MonoBehaviour
         if (collision.CompareTag("ClickableMoney"))
         {
             _isCollide = true;
+        }
+        if (collision.CompareTag("Bill"))
+        {
+            _isbill = true;
         }
     }
 
@@ -38,5 +49,10 @@ public class OnMouseClickListener : MonoBehaviour
         {
             _isCollide = false;
         }
+        if (collision.CompareTag("Bill"))
+        {
+            _isbill = false;
+        }
+
     }
 }

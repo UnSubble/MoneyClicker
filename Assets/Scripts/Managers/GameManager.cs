@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
     private Pool _pool;
     [SerializeField]
     private EventHandler _eventHandler;
+    [SerializeField]
+<<<<<<< HEAD
+    private AbstractBill _abstarctbill;
+
+=======
+    private float _uiCheckMoneyTime;
+>>>>>>> 5b88e158b8f835bf00257a9cb23ebda3ae7522a3
 
     public int TextPopupPoolCount {  get; private set; }
 
@@ -29,9 +36,17 @@ public class GameManager : MonoBehaviour
 
     public EventHandler EventHandler { get; private set; }
 
+<<<<<<< HEAD
+    public AbstractBill AbstractBill { get; private set; }
+=======
+    public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
+>>>>>>> 5b88e158b8f835bf00257a9cb23ebda3ae7522a3
+
     private void Awake()
     {
         Instance = this;
+
+        MoneyManager = new MoneyManagerImpl(Formatter);
     }
 
     void Start()
@@ -41,7 +56,7 @@ public class GameManager : MonoBehaviour
         Pool = _pool;
         EventHandler = _eventHandler;
         Formatter = new BasicFormatter();
-        MoneyManager = new MoneyManagerImpl(Formatter);
+        
 
         _pool.CreateNTimes(_textPopupPrefab, _textPopupParent.transform, _textPopupPoolCount);
     }
