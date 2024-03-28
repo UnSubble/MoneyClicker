@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EventHandler _eventHandler;
     [SerializeField]
+
+    private AbstractBill _abstarctbill;
+
     private float _uiCheckMoneyTime;
 
     public int TextPopupPoolCount {  get; private set; }
@@ -30,6 +33,8 @@ public class GameManager : MonoBehaviour
     public Pool Pool { get; private set; }
 
     public EventHandler EventHandler { get; private set; }
+
+    public AbstractBill AbstractBill { get; private set; }
 
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
