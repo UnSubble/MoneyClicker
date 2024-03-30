@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public AbstractBill AbstractBill { get; private set; }
 
+    public ButtonManager ButtonManager { get; private set; }
+
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
     private void Awake()
