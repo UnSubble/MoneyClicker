@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class ButtonEvent : MonoBehaviour,Event
 {
-    ButtonManager buttonManager;
+    Button›nterface button›nterface;
+    string _name;
     public void Handle()
     {
-        buttonManager.PlayAnimation();
+        
+        button›nterface.Play(_name);
     }
 
-    public ButtonEvent(ButtonManager buttonManager)
+    public ButtonEvent(Button›nterface button›nterface,string _name)
     {
-        this.buttonManager = buttonManager;
+        this.button›nterface = button›nterface;
+        this._name = _name;
     }
 
     public bool HasEnded()
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 
-    // Start is called before the first frame update
+    
     
 }

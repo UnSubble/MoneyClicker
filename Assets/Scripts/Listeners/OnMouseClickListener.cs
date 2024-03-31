@@ -6,9 +6,12 @@ public class OnMouseClickListener : MonoBehaviour
 {
     private TextPopup _textPopup;
     private bool _isCollide,_isbill,_isclick;
+    private string _name;
+    
 
     private void Start()
     {
+        
         _isCollide = false;
         _textPopup = new TextPopup();
     }
@@ -32,8 +35,8 @@ public class OnMouseClickListener : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && _isclick)
         {
-            ButtonManager button=GameManager.Instance.ButtonManager;
-            Event _event = new ButtonEvent(button);
+            ButtonAnimation button=GameManager.Instance.ButtonAnimation;
+            Event _event = new ButtonEvent(button,_name);
             GameManager.Instance.EventHandler.Enqueue(_event);
         }
     }
@@ -50,6 +53,7 @@ public class OnMouseClickListener : MonoBehaviour
         }
         if (collision.CompareTag("Button"))
         {
+            _name=collision.gameObject.name;
             _isclick=true;
         }
     }
@@ -60,10 +64,10 @@ public class OnMouseClickListener : MonoBehaviour
         {
             _isCollide = false;
         }
-        if (collision.CompareTag("Bill"))
-        {
-            _isbill = false;
-        }
+        //if (collision.CompareTag("Bill"))
+        //{
+        //    _isbill = false;
+        //}
         if (collision.CompareTag("Button"))
         {
             _isclick = false;

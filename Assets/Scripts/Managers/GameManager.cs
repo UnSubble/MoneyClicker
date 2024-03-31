@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     private Pool _pool;
     [SerializeField]
     private EventHandler _eventHandler;
+    //[SerializeField]
+    //private AbstractBill _abstarctbill;
     [SerializeField]
-
-    private AbstractBill _abstarctbill;
+    private ButtonAnimation _buttonAnimation;
 
     private float _uiCheckMoneyTime;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public AbstractBill AbstractBill { get; private set; }
 
-    public ButtonManager ButtonManager { get; private set; }
+    public ButtonAnimation ButtonAnimation { get; private set; }
 
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         Pool = _pool;
         EventHandler = _eventHandler;
         Formatter = new BasicFormatter();
+        ButtonAnimation = _buttonAnimation;
         
 
         _pool.CreateNTimes(_textPopupPrefab, _textPopupParent.transform, _textPopupPoolCount);

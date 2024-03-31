@@ -7,6 +7,6 @@ public abstract class AbstractBill : MonoBehaviour, Bill
 
     public void Reset()
     {
-        
+        Debug.Log("bill");
     }
 }
