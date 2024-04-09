@@ -1,4 +1,6 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,16 +16,18 @@ public class GameManager : MonoBehaviour
     private Pool _pool;
     [SerializeField]
     private EventHandler _eventHandler;
-    //[SerializeField]
-    //private AbstractBill _abstarctbill;
     [SerializeField]
     private ButtonAnimation _buttonAnimation;
+    [SerializeField]
+    private OnMouseClickListener _onMouseClickListener;
+    [SerializeField]
+    private BillManager _billmanager;
 
     private float _uiCheckMoneyTime;
 
-    public int TextPopupPoolCount {  get; private set; }
+    public int TextPopupPoolCount { get; private set; }
 
-    public static GameManager Instance { get; private set; } 
+    public static GameManager Instance { get; private set; }
 
     public Clicker Clicker { get; private set; }
 
@@ -35,18 +39,22 @@ public class GameManager : MonoBehaviour
 
     public EventHandler EventHandler { get; private set; }
 
-    public AbstractBill AbstractBill { get; private set; }
+    public BillManager BillManager { get; private set; }
 
-    public ButtonAnimation ButtonAnimation { get; private set; }
+    public ButtonAnimation ButtonAnimation { get;  set; }
 
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
+    public OnMouseClickListener OnMouseClickListener { get; private set; }
+ 
     private void Awake()
     {
         Instance = this;
 
         MoneyManager = new MoneyManagerImpl(Formatter);
     }
+
+   
 
     void Start()
     {
@@ -56,6 +64,8 @@ public class GameManager : MonoBehaviour
         EventHandler = _eventHandler;
         Formatter = new BasicFormatter();
         ButtonAnimation = _buttonAnimation;
+        OnMouseClickListener = _onMouseClickListener;
+        BillManager = _billmanager;
         
 
         _pool.CreateNTimes(_textPopupPrefab, _textPopupParent.transform, _textPopupPoolCount);

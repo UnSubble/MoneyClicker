@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OnMouseClickListener : MonoBehaviour
 {
     private TextPopup _textPopup;
-    private bool _isCollide,_isbill,_isclick;
-    private string _name;
-    
+    private bool _isCollide, _isbill, _isclick;
+    public string _buttonname, _billname;
+
+    public delegate void GameEventManager();
+
+    public event GameEventManager OnclickButton;
+  
+    Animator anim;
+
 
     private void Start()
     {
@@ -18,7 +25,12 @@ public class OnMouseClickListener : MonoBehaviour
 
     void Update()
     {
+
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+       
+       
+
         if (Input.GetMouseButtonDown(0) && _isCollide)
         {
             Clicker clicker = GameManager.Instance.Clicker;
@@ -26,19 +38,13 @@ public class OnMouseClickListener : MonoBehaviour
             GameManager.Instance.EventHandler.Enqueue(event_);
         }
 
-        if(Input.GetMouseButtonDown(0) && _isbill)
+        if (Input.GetMouseButtonDown(0) && _isbill)
         {
-            AbstractBill bill = GameManager.Instance.AbstractBill;
-            Event _event = new BillEvent(bill);
+            BillManager bill = GameManager.Instance.BillManager;
+            Event _event = new BillEvent(bill, _billname);
             GameManager.Instance.EventHandler.Enqueue(_event);
         }
 
-        if (Input.GetMouseButtonDown(0) && _isclick)
-        {
-            ButtonAnimation button=GameManager.Instance.ButtonAnimation;
-            Event _event = new ButtonEvent(button,_name);
-            GameManager.Instance.EventHandler.Enqueue(_event);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,16 +53,15 @@ public class OnMouseClickListener : MonoBehaviour
         {
             _isCollide = true;
         }
-        if (collision.CompareTag("Bill"))
-        {
-            _isbill = true;
-        }
+        
         if (collision.CompareTag("Button"))
         {
-            _name=collision.gameObject.name;
-            _isclick=true;
+            _isclick = true;
         }
+        
     }
+    
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -64,10 +69,7 @@ public class OnMouseClickListener : MonoBehaviour
         {
             _isCollide = false;
         }
-        //if (collision.CompareTag("Bill"))
-        //{
-        //    _isbill = false;
-        //}
+        
         if (collision.CompareTag("Button"))
         {
             _isclick = false;

@@ -5,5 +5,5 @@ using UnityEngine;
 public interface Buttonİnterface 
 {
     
-    public void Play(string _name);
+    public void Play();
 }

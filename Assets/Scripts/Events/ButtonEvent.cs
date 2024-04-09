@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonEvent : MonoBehaviour,Event
+public class ButtonEvent :Event
 {
     Button›nterface button›nterface;
-    string _name;
+    
     public void Handle()
     {
         
-        button›nterface.Play(_name);
+        button›nterface.Play();
     }
 
-    public ButtonEvent(Button›nterface button›nterface,string _name)
+    public ButtonEvent(Button›nterface button›nterface)
     {
         this.button›nterface = button›nterface;
-        this._name = _name;
     }
 
     public bool HasEnded()
