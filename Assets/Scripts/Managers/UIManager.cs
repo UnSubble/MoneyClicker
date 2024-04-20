@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     private MoneyManager _moneyManager;
-    private TextMeshProUGUI _textMeshProUGUI;
+    [SerializeField]
+    TextMeshProUGUI _textMeshProUGUI;
     private Button _farmbutton;
-    [SerializeField] GameObject _farmmenu,_billmenu;
+    [SerializeField] GameObject _farmmenu, _billmenu;
+    [SerializeField]
+    public float money = 0;
 
-    
+
 
     public static UIManager Instance { get; private set; }
 
@@ -23,29 +26,33 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _moneyManager = GameManager.Instance.MoneyManager;
-        StartCoroutine(CheckMoney());
-        _farmbutton=GameObject.Find("FarmButton").GetComponent<Button>();
-        
+        //StartCoroutine(CheckMoney());
+        _farmbutton = GameObject.Find("FarmButton").GetComponent<Button>();
+
+
+
     }
 
     void Update()
     {
-        _farmbutton.onClick.AddListener(()=>Demo());
+        _textMeshProUGUI.text = _moneyManager.GetFormattedMoney();
     }
 
-     IEnumerator CheckMoney()
-    { 
-        while (true)
-        {
-            yield return new WaitForSeconds(GameManager.Instance.UICheckMoneyTime);
-            _textMeshProUGUI.text = _moneyManager.GetFormattedMoney();
-            
-        }
-    }
+    //IEnumerator CheckMoney()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(GameManager.Instance.UICheckMoneyTime);
+    //        _textMeshProUGUI.text = _moneyManager.GetFormattedMoney();
 
-    void Demo()
+    //    }
+    //}
+
+
+    public void UpdateMoney()
     {
-        _farmmenu.SetActive(true);
-        _billmenu.SetActive(false);
+        money += 1f;
+        Debug.Log(money);
+
     }
 }

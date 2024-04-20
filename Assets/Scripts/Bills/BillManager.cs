@@ -9,8 +9,10 @@ using UnityEngine;
 public class BillManager : MonoBehaviour, Bill
 {
     TextMeshProUGUI electrickbill, firebill, waterbill, phonebill, internetbill;
+    float _electrick, _fire, _phone, _water, _internet;
     float billcooldown = 0, billupdatetimer = .5f, resetbill = 0;
     bool isresetbill;
+    float checkmoney;
 
     private void Start()
     {
@@ -19,6 +21,7 @@ public class BillManager : MonoBehaviour, Bill
         phonebill = GameObject.Find("PhoneBill").GetComponent<TextMeshProUGUI>();
         waterbill = GameObject.Find("WaterBill").GetComponent<TextMeshProUGUI>();
         internetbill = GameObject.Find("InternetBill").GetComponent<TextMeshProUGUI>();
+        
 
     }
 
@@ -41,14 +44,25 @@ public class BillManager : MonoBehaviour, Bill
 
             billcooldown = Time.time;
         }
+        checkmoney = GameManager.Instance.UIManager.money;
+        _water = float.Parse(waterbill.text);
+        
+
 
     }
 
     public void ResetWaterBill()
     {
-        isresetbill = true;
-        waterbill.text = resetbill.ToString();
-        StartCoroutine(Resetbill());
+        if (checkmoney > _water)
+        {
+            isresetbill = true;
+            waterbill.text = resetbill.ToString();
+            StartCoroutine(Resetbill());
+        }
+        else
+            Debug.Log("dýd not payed");
+        
+
     }
 
     public void ResetPhoneBill()

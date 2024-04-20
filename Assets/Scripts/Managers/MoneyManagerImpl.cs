@@ -35,7 +35,7 @@ public class MoneyManagerImpl : MoneyManager
     }
     public string GetFormattedMoney()
     {
-        return "null";
+        return GameManager.Instance.UIManager.money.ToString();
     }
 
     public Formatter GetFormatter()

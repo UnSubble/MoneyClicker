@@ -135,6 +135,18 @@ MonoBehaviour:
           m_StringArgument: click
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 143362729078203582, guid: cfce92cb9d6e5b842b7129266875aebf, type: 3}
+        m_TargetAssemblyTypeName: FarmManager, Assembly-CSharp
+        m_MethodName: NuclearCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &5602416178049980001
 Animator:
   serializedVersion: 5

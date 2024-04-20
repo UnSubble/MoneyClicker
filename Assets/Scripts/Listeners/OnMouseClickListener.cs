@@ -7,13 +7,15 @@ public class OnMouseClickListener : MonoBehaviour
 {
     private TextPopup _textPopup;
     private bool _isCollide, _isbill, _isclick;
-    public string _buttonname, _billname;
+    
 
     public delegate void GameEventManager();
 
     public event GameEventManager OnclickButton;
   
     Animator anim;
+
+    public LayerMask _targetlayer;
 
 
     private void Start()
@@ -27,23 +29,30 @@ public class OnMouseClickListener : MonoBehaviour
     {
 
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        
        
        
 
-        if (Input.GetMouseButtonDown(0) && _isCollide)
+        //if (Input.GetMouseButtonDown(0) && _isCollide)
+        //{
+        //    Clicker clicker = GameManager.Instance.Clicker;
+        //    Event event_ = new MoneyClickedEvent(_textPopup.GetType(), clicker.GetCapacity().ToString(), clicker.GetFormat());
+        //    GameManager.Instance.EventHandler.Enqueue(event_);
+        //}
+
+        if(Input.GetMouseButtonDown(0))
         {
-            Clicker clicker = GameManager.Instance.Clicker;
-            Event event_ = new MoneyClickedEvent(_textPopup.GetType(), clicker.GetCapacity().ToString(), clicker.GetFormat());
-            GameManager.Instance.EventHandler.Enqueue(event_);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, _targetlayer);
+
+            if (hit.collider != null)
+            { 
+                GameManager.Instance.UIManager.UpdateMoney();
+                
+            }
         }
 
-        if (Input.GetMouseButtonDown(0) && _isbill)
-        {
-            BillManager bill = GameManager.Instance.BillManager;
-            Event _event = new BillEvent(bill, _billname);
-            GameManager.Instance.EventHandler.Enqueue(_event);
-        }
+        
 
     }
 

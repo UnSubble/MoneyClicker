@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     private OnMouseClickListener _onMouseClickListener;
     [SerializeField]
     private BillManager _billmanager;
+    [SerializeField]
+    private UIManager _uýmanager;
+    [SerializeField]
+    private FarmManager _farmmanager;
 
     private float _uiCheckMoneyTime;
 
@@ -46,6 +50,10 @@ public class GameManager : MonoBehaviour
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
     public OnMouseClickListener OnMouseClickListener { get; private set; }
+
+    public UIManager UIManager { get; private set; }
+
+    public FarmManager FarmManager { get; private set; }
  
     private void Awake()
     {
@@ -66,6 +74,8 @@ public class GameManager : MonoBehaviour
         ButtonAnimation = _buttonAnimation;
         OnMouseClickListener = _onMouseClickListener;
         BillManager = _billmanager;
+        UIManager = _uýmanager;
+        FarmManager= _farmmanager;
         
 
         _pool.CreateNTimes(_textPopupPrefab, _textPopupParent.transform, _textPopupPoolCount);
