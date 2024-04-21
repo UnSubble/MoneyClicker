@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EventHandler _eventHandler;
     [SerializeField]
-    private ButtonAnimation _buttonAnimation;
-    [SerializeField]
     private OnMouseClickListener _onMouseClickListener;
     [SerializeField]
     private BillManager _billmanager;
@@ -26,6 +24,8 @@ public class GameManager : MonoBehaviour
     private UIManager _uýmanager;
     [SerializeField]
     private FarmManager _farmmanager;
+    [SerializeField]
+    private ButtonManager _buttonmanager;
 
     private float _uiCheckMoneyTime;
 
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public BillManager BillManager { get; private set; }
 
-    public ButtonAnimation ButtonAnimation { get;  set; }
+    
 
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager { get; private set; }
 
     public FarmManager FarmManager { get; private set; }
+
+    public ButtonManager ButtonManager {  get; private set; }
  
     private void Awake()
     {
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
         Pool = _pool;
         EventHandler = _eventHandler;
         Formatter = new BasicFormatter();
-        ButtonAnimation = _buttonAnimation;
+        ButtonManager = _buttonmanager;
         OnMouseClickListener = _onMouseClickListener;
         BillManager = _billmanager;
         UIManager = _uýmanager;

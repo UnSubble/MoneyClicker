@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _farmmenu, _billmenu;
     [SerializeField]
     public float money = 0;
+    bool menucontrol;
+
 
 
 
@@ -35,7 +37,8 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        _textMeshProUGUI.text = _moneyManager.GetFormattedMoney();
+        _textMeshProUGUI.text = _moneyManager.GetTotalMoney();
+        //_farmbutton.onClick.AddListener(() => OpenFarmMenu());
     }
 
     //IEnumerator CheckMoney()
@@ -53,6 +56,13 @@ public class UIManager : MonoBehaviour
     {
         money += 1f;
         Debug.Log(money);
+
+    }
+
+    public void OpenFarmMenu()
+    {
+        _farmmenu.SetActive(true);
+        _billmenu.SetActive(false);
 
     }
 }

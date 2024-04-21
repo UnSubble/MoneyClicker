@@ -26,7 +26,7 @@ public class MoneyManagerImpl : MoneyManager
 
     public string GetTotalMoney()
     {
-        return null;
+        return GameManager.Instance.UIManager.money.ToString();
     }
 
     public bool UpgradeBuilding(Building building)
@@ -35,7 +35,7 @@ public class MoneyManagerImpl : MoneyManager
     }
     public string GetFormattedMoney()
     {
-        return GameManager.Instance.UIManager.money.ToString();
+        return "null";
     }
 
     public Formatter GetFormatter()
