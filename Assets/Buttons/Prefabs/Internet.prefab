@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5744757917582911493}
   m_Layer: 5
   m_Name: Internet
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +252,10 @@ PrefabInstance:
     - target: {fileID: 1927071939003553271, guid: f89ee1a0c5b9a6d4a9f858c4d356b4c0, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927071939003553271, guid: f89ee1a0c5b9a6d4a9f858c4d356b4c0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8128943566712026297, guid: f89ee1a0c5b9a6d4a9f858c4d356b4c0, type: 3}
       propertyPath: m_Pivot.x

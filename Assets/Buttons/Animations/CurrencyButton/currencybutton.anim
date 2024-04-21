@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: farmbutton
+  m_Name: currencybutton
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 386250249, guid: 962fdd28d1691864d940be408affb829, type: 3}
+      value: {fileID: -1679071357, guid: 1588ad40937906b46a15ab05352c853b, type: 3}
     - time: 0.083333336
-      value: {fileID: -150135674, guid: 962fdd28d1691864d940be408affb829, type: 3}
+      value: {fileID: 1923654454, guid: 1588ad40937906b46a15ab05352c853b, type: 3}
     - time: 0.16666667
-      value: {fileID: 1684145114, guid: 962fdd28d1691864d940be408affb829, type: 3}
+      value: {fileID: 825479286, guid: 1588ad40937906b46a15ab05352c853b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 386250249, guid: 962fdd28d1691864d940be408affb829, type: 3}
-    - {fileID: -150135674, guid: 962fdd28d1691864d940be408affb829, type: 3}
-    - {fileID: 1684145114, guid: 962fdd28d1691864d940be408affb829, type: 3}
+    - {fileID: -1679071357, guid: 1588ad40937906b46a15ab05352c853b, type: 3}
+    - {fileID: 1923654454, guid: 1588ad40937906b46a15ab05352c853b, type: 3}
+    - {fileID: 825479286, guid: 1588ad40937906b46a15ab05352c853b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
