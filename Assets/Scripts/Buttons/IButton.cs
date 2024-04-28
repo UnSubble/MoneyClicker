@@ -4,16 +4,15 @@ using UnityEngine;
 
 public interface IButton 
 {
-    public void FarmButton();
 
-    public void Electric();
+    public void Rent();
 
-    public void Water();
+    public void Employee();
 
-    public void Phone();
+    public void Tax();
 
-    public void Fire();
+    public void Bill();
 
-    public void Internet();
+    
 
 }

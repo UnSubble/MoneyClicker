@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BillEvent : MonoBehaviour,Event
 {
-    Bill _bill;
+    Pay _bill;
     string _billname;
-    public BillEvent(Bill bill , string _billname)
+    public BillEvent(Pay bill , string _billname)
     {
         _bill = bill;
         this._billname = _billname;

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private OnMouseClickListener _onMouseClickListener;
     [SerializeField]
-    private BillManager _billmanager;
+    private Paymanager _paymanager;
     [SerializeField]
     private UIManager _uımanager;
     [SerializeField]
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public EventHandler EventHandler { get; private set; }
 
-    public BillManager BillManager { get; private set; }
+    public Paymanager PayManager { get; private set; }
 
     
 
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         Formatter = new BasicFormatter();
         ButtonManager = _buttonmanager;
         OnMouseClickListener = _onMouseClickListener;
-        BillManager = _billmanager;
+        PayManager = _paymanager;
         UIManager = _uımanager;
         FarmManager= _farmmanager;
         

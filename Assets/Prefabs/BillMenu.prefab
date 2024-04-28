@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6995251629083606380}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,6 +44,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6764052273097034420}
     m_Modifications:
+    - target: {fileID: 1136172565222096337, guid: 090ebe424a2213f4b9457e77d94ca382, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136172565222096337, guid: 090ebe424a2213f4b9457e77d94ca382, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136172565222096337, guid: 090ebe424a2213f4b9457e77d94ca382, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136172565222096337, guid: 090ebe424a2213f4b9457e77d94ca382, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 3462475173614236705, guid: 090ebe424a2213f4b9457e77d94ca382, type: 3}
       propertyPath: m_Name
       value: Water
@@ -254,6 +270,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ResetFireBill
       objectReference: {fileID: 0}
+    - target: {fileID: 8402131751244442154, guid: 56fa348ce4ab09e419a634ca8d972b76, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402131751244442154, guid: 56fa348ce4ab09e419a634ca8d972b76, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402131751244442154, guid: 56fa348ce4ab09e419a634ca8d972b76, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402131751244442154, guid: 56fa348ce4ab09e419a634ca8d972b76, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -356,6 +388,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5337983770984838820, guid: 3b196bdfa1bae6b448c2cdc18da8cfbb, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337983770984838820, guid: 3b196bdfa1bae6b448c2cdc18da8cfbb, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337983770984838820, guid: 3b196bdfa1bae6b448c2cdc18da8cfbb, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337983770984838820, guid: 3b196bdfa1bae6b448c2cdc18da8cfbb, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 5631665968556014283, guid: 3b196bdfa1bae6b448c2cdc18da8cfbb, type: 3}
       propertyPath: m_Name
       value: Phone
@@ -414,9 +462,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: InternetBill
       objectReference: {fileID: 0}
+    - target: {fileID: 4802298218065777675, guid: 54acba3722d249c43a84476cbb61f6bf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802298218065777675, guid: 54acba3722d249c43a84476cbb61f6bf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802298218065777675, guid: 54acba3722d249c43a84476cbb61f6bf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802298218065777675, guid: 54acba3722d249c43a84476cbb61f6bf, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 5197108785017729970, guid: 54acba3722d249c43a84476cbb61f6bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5197108785017729970, guid: 54acba3722d249c43a84476cbb61f6bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -551,8 +615,24 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1902306322967791251, guid: 502afcd37864e2549913bb89a38806b7, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902306322967791251, guid: 502afcd37864e2549913bb89a38806b7, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902306322967791251, guid: 502afcd37864e2549913bb89a38806b7, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902306322967791251, guid: 502afcd37864e2549913bb89a38806b7, type: 3}
       propertyPath: m_fontSizeBase
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902306322967791251, guid: 502afcd37864e2549913bb89a38806b7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 2916658581563038551, guid: 502afcd37864e2549913bb89a38806b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

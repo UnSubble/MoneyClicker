@@ -1,90 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class ButtonManager : MonoBehaviour, IButton
 {
-    
-    //BUTTONS
-    private Button _farmbutton,_internetbutton,_phonebutton,_waterbutton,_firebutton,_electricbutton;
-    //MENU ANIMATIONS
-    private Animator _farmmenu;
-    
+
+   
+    private Button  _nuclearbutton,rentbutton,employeebutton,taxbutton,billbutton;
+    FarmManager farmmanager;
+    UIManager uýmanager;
+    public Toggle farmbutton, currencybutton;
+
+    private void Awake()
+    {
+        
+        
+    }
 
     void Start()
     {
-        _farmmenu = GameObject.Find("FarmMenu").GetComponent<Animator>();
+        farmmanager = GameManager.Instance.FarmManager;
+        uýmanager = GameManager.Instance.UIManager;
 
-         //BUTTON
-        _internetbutton = GameObject.Find("Internet").GetComponent<Button>();
-        _farmbutton = GameObject.Find("FarmButton").GetComponent<Button>();
-        _phonebutton = GameObject.Find("Phone").GetComponent<Button>();
-        _waterbutton = GameObject.Find("Water").GetComponent<Button>();
-        _firebutton = GameObject.Find("Fire").GetComponent<Button>();
-        _electricbutton = GameObject.Find("Electric").GetComponent<Button>();
+        farmbutton = GameObject.Find("FarmButton").GetComponent<Toggle>();
+        currencybutton = GameObject.Find("CurrencyButton").GetComponent<Toggle>();
+        _nuclearbutton = GameObject.Find("Nuclear").GetComponent<Button>();
 
-        
+
+
+        farmbutton.onValueChanged.AddListener(uýmanager.FarmMenu);
+        currencybutton.onValueChanged.AddListener(uýmanager.CurrencyMenu);
 
     }
+
 
     void Update()
     {
-        _farmbutton.onClick.AddListener(() => FarmButton());
-        _internetbutton.onClick.AddListener(() => Internet());
-        _electricbutton.onClick.AddListener(() => Electric());
-        _waterbutton.onClick.AddListener(() => Water());
-        _firebutton.onClick.AddListener(() => Fire());
-        _phonebutton.onClick.AddListener(() => Phone());
-
-
-        GetAllButton();
-    }
-
-    void GetAllButton()
-    {
-        GameObject[] buttons = GameObject.FindGameObjectsWithTag("Button");
-        foreach (GameObject button in buttons)
-        {
-            button.GetComponent<Button>().onClick.AddListener(() => { button.GetComponent<Animator>().SetTrigger("click"); });
-        }
-    }
-
-
-    public void FarmButton()
-    {
-        _farmmenu.SetTrigger("openfarmmenu");
+        
+        
+        //_nuclearbutton.onClick.AddListener(() => farmmanager.NuclearCount());
         
     }
 
-    public void Internet()
+    public void Rent()
     {
-        GameManager.Instance.BillManager.ResetInternetBill();
-        
+        GameManager.Instance.PayManager.ResetRentPay();
     }
 
-    public void Electric()
+    public void Employee()
     {
-        GameManager.Instance.BillManager.ResetElectrickBill();
-        
+        GameManager.Instance.PayManager.ResetEmployeePay();
     }
 
-    public void Water()
+    public void Tax()
     {
-        GameManager.Instance.BillManager.ResetWaterBill();
-        
+        GameManager.Instance.PayManager.ResetTaxPay();
     }
 
-    public void Fire()
+    public void Bill()
     {
-        GameManager.Instance.BillManager.ResetFireBill();
-        
-    }
-
-    public void Phone()
-    {
-        GameManager.Instance.BillManager.ResetPhoneBill();
-        
+        GameManager.Instance.PayManager.ResetBillPay();
     }
 }

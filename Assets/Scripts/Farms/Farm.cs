@@ -9,4 +9,5 @@ public interface Farm
     public void NuclearCount();
 
     public void OilCount();
+    
 }

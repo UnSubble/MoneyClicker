@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,16 +7,17 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private MoneyManager _moneyManager;
-    [SerializeField]
-    TextMeshProUGUI _textMeshProUGUI;
-    private Button _farmbutton;
-    [SerializeField] GameObject _farmmenu, _billmenu;
-    [SerializeField]
+    private MoneyManager _moneyManager; ButtonManager buttonmanager;
+
+    [SerializeField] public
+    TextMeshProUGUI moneytext,bankcount,nuclearcount,oilcount,bankfee,oilfee,nuclearfee,taxpay,billpay,employeepay,rentpay;
+    
+    
     public float money = 0;
-    bool menucontrol;
 
 
+   
+    Transform farmmenu,currencymenu;
 
 
     public static UIManager Instance { get; private set; }
@@ -23,22 +25,68 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+       
+
     }
 
     void Start()
     {
-        _moneyManager = GameManager.Instance.MoneyManager;
         //StartCoroutine(CheckMoney());
-        _farmbutton = GameObject.Find("FarmButton").GetComponent<Button>();
+        _moneyManager = GameManager.Instance.MoneyManager;
+        buttonmanager = GameManager.Instance.ButtonManager;
 
+        moneytext = GameObject.Find("TotalMoney").GetComponent<TextMeshProUGUI>();
+        oilcount = GameObject.Find("OilCount").GetComponent<TextMeshProUGUI>();
+        bankcount = GameObject.Find("BankCount").GetComponent<TextMeshProUGUI>();
+        nuclearcount = GameObject.Find("NuclearCount").GetComponent<TextMeshProUGUI>();
+        bankfee= GameObject.Find("BankFee").GetComponent<TextMeshProUGUI>();
+        oilfee = GameObject.Find("OilFee").GetComponent<TextMeshProUGUI>();
+        nuclearfee = GameObject.Find("NuclearFee").GetComponent<TextMeshProUGUI>();
+
+        //PAYS TEXT
+        taxpay = GameObject.Find("TaxExpensesTxt").GetComponent<TextMeshProUGUI>();
+        rentpay= GameObject.Find("RentExpensesTxt").GetComponent<TextMeshProUGUI>();
+        employeepay= GameObject.Find("EmployeeExpensesTxt").GetComponent<TextMeshProUGUI>();
+        billpay= GameObject.Find("BillExpensesTxt").GetComponent<TextMeshProUGUI>();
+
+
+
+        farmmenu = GameObject.Find("FarmMenu").GetComponent<Transform>();
+        currencymenu= GameObject.Find("CurrencyMenu").GetComponent<Transform>();
+        
+
+    }
+    public void FarmMenu(bool on)
+    {
+
+        if (on)
+        {
+            farmmenu.position = new Vector2(0, 0);
+            buttonmanager.currencybutton.isOn = false;
+            
+        }
+        else farmmenu.position = new Vector2(0, -5);
 
 
     }
 
+    public void CurrencyMenu(bool on)
+    {
+        if (on)
+        {
+            currencymenu.position = new Vector2(0, 0);
+            buttonmanager.farmbutton.isOn = false;
+
+        }
+        else currencymenu.position = new Vector2(0, -5);
+    }
+
+
+
     void Update()
     {
-        _textMeshProUGUI.text = _moneyManager.GetTotalMoney();
-        //_farmbutton.onClick.AddListener(() => OpenFarmMenu());
+        moneytext.text = _moneyManager.GetTotalMoney();
+        
     }
 
     //IEnumerator CheckMoney()
@@ -52,17 +100,13 @@ public class UIManager : MonoBehaviour
     //}
 
 
-    public void UpdateMoney()
-    {
-        money += 1f;
-        Debug.Log(money);
+    public void UpdateMoney() => money += 1f;
 
-    }
 
-    public void OpenFarmMenu()
-    {
-        _farmmenu.SetActive(true);
-        _billmenu.SetActive(false);
 
-    }
+
+    
+
+
+
 }
