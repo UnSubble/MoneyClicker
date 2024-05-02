@@ -10,16 +10,19 @@ public class Paymanager : MonoBehaviour, Pay
 {
     
     
-    float billcooldown = 0, billupdatetimer = 1f, resetbill = 0;
+    float billcooldown = 0, billupdatetimer = 2f, resetbill = 0;
     bool isresetbill;
-    float _money;
+    
 
-    UIManager uýmanager;
+    
+    FarmManager farmmanager; 
+   
     
 
     private void Start()
     {
-        uýmanager = GameManager.Instance.UIManager;
+        
+        farmmanager = GameManager.Instance.FarmManager;
 
     }
 
@@ -32,76 +35,82 @@ public class Paymanager : MonoBehaviour, Pay
 
     void Update()
     {
+
+
+        AAmountPool.money = float.Parse(GameManager.Instance.MoneyManager.GetTotalMoney());
+
         
 
-        _money = float.Parse(GameManager.Instance.MoneyManager.GetTotalMoney());
+        UpdatePays();
 
-        //if (Time.time - billcooldown > billupdatetimer && !isresetbill)
-        //{
-        //    uýmanager.taxpay.text = (0.01f + float.Parse(uýmanager.taxpay.text)).ToString();
-        //    uýmanager.rentpay.text = (0.1f + float.Parse(uýmanager.rentpay.text)).ToString();
-        //    uýmanager.employeepay.text = (0.01f + float.Parse(uýmanager.employeepay.text)).ToString();
-        //    uýmanager.billpay.text = (0.01f + float.Parse(uýmanager.billpay.text)).ToString();
-           
+    }
 
-        //    billcooldown = Time.time;
-        //}
+    void UpdatePays()
+    {
+        if (Time.time - billcooldown > billupdatetimer && !isresetbill)
+        {
+            UIManager.Instance.rentpay.text=(AAmountPool.bankcount+AAmountPool.nuclearcount+AAmountPool.gasolinecount+AAmountPool.rentpay).ToSafeString();
 
+            //UIManager.Instance.taxpay.text =
+            //    (farmmanager._bankcount*0.03f+farmmanager._nuclearcount*0.05f+farmmanager._oilcount*0.04f+ float.Parse(UIManager.Instance.taxpay.text)).ToString();
 
+            //UIManager.Instance.employeepay.text =
+            //    (farmmanager._bankcount*0.5f+farmmanager._oilcount*0.01+farmmanager._nuclearcount*0.02+ float.Parse(UIManager.Instance.employeepay.text)).ToString();
 
+            billcooldown = Time.time;
+        }
     }
 
    
 
     public void ResetTaxPay()
     {
-        if (_money > float.Parse(uýmanager.taxpay.text))
-        {
-            _money -= float.Parse(uýmanager.taxpay.text);
-            GameManager.Instance.UIManager.money = _money;
-            isresetbill = true;
-            uýmanager.taxpay.text = resetbill.ToString();
-            StartCoroutine(Resetbill());
-        }
+        //if (_money > float.Parse(UIManager.Instance.taxpay.text))
+        //{
+        //    _money -= float.Parse(UIManager.Instance.taxpay.text);
+        //    GameManager.Instance.UIManager.money = _money;
+        //    isresetbill = true;
+        //    UIManager.Instance.taxpay.text = resetbill.ToString();
+        //    StartCoroutine(Resetbill());
+        //}
             
     }
 
     public void ResetRentPay()
     {
-        if (_money > float.Parse(uýmanager.rentpay.text))
+        if (AAmountPool.money > AAmountPool.rentpay)
         {
-            _money -= float.Parse(uýmanager.rentpay.text);
-            GameManager.Instance.UIManager.money = _money;
+            AAmountPool.money -= AAmountPool.rentpay;
             isresetbill = true;
-            uýmanager.rentpay.text = resetbill.ToString();
+            UIManager.Instance.rentpay.text = resetbill.ToString();
             StartCoroutine(Resetbill());
         }
-            
+
     }
 
     public void ResetEmployeePay()
     {
-        if (_money > float.Parse(uýmanager.employeepay.text))
-        {
-            _money -= float.Parse(uýmanager.employeepay.text);
-            GameManager.Instance.UIManager.money = _money;
-            isresetbill = true;
-            uýmanager.employeepay.text = resetbill.ToString();
-            StartCoroutine(Resetbill());
-        }
+        //if (_money > float.Parse(UIManager.Instance.employeepay.text))
+        //{
+        //    _money -= float.Parse(UIManager.Instance.employeepay.text);
+        //    GameManager.Instance.UIManager.money = _money;
+        //    isresetbill = true;
+        //    UIManager.Instance.employeepay.text = resetbill.ToString();
+        //    StartCoroutine(Resetbill());
+        //}
             
     }
 
     public void ResetBillPay()
     {
-        if (_money > float.Parse(uýmanager.billpay.text))
-        {
-            _money -= float.Parse(uýmanager.billpay.text);
-            GameManager.Instance.UIManager.money = _money;
-            isresetbill = true;
-            uýmanager.billpay.text = resetbill.ToString();
-            StartCoroutine(Resetbill());
-        }
+        //if (_money > float.Parse(UIManager.Instance.billpay.text))
+        //{
+        //    _money -= float.Parse(UIManager.Instance.billpay.text);
+        //    GameManager.Instance.UIManager.money = _money;
+        //    isresetbill = true;
+        //    UIManager.Instance.billpay.text = resetbill.ToString();
+        //    StartCoroutine(Resetbill());
+        //}
             
     }
 }

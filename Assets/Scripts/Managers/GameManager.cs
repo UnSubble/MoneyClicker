@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private FarmManager _farmmanager;
     [SerializeField]
     private ButtonManager _buttonmanager;
+    [SerializeField]
+    private CurrencyManager _currencymanager;
 
     private float _uiCheckMoneyTime;
 
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
     public FarmManager FarmManager { get; private set; }
 
     public ButtonManager ButtonManager {  get; private set; }
+
+    public CurrencyManager CurrencyManager { get; private set; }
  
     private void Awake()
     {
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour
         PayManager = _paymanager;
         UIManager = _uýmanager;
         FarmManager= _farmmanager;
+        CurrencyManager = _currencymanager;
         
 
         _pool.CreateNTimes(_textPopupPrefab, _textPopupParent.transform, _textPopupPoolCount);

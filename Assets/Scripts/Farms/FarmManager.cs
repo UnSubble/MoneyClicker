@@ -5,66 +5,50 @@ using UnityEngine;
 public class FarmManager : MonoBehaviour, Farm
 {
     [SerializeField] 
-    public int _bankcount=0, _nuclearcount=0, _oilcount = 0;
-    float _bankfee=300f,_oilfee=500f,_nuclearfee= 600f;
-    float _money;
+    
+    float _bankfee=50,_oilfee=10,_nuclearfee= 30;
+   
 
-    UIManager uýmanager;
 
-    void Start()
+    public void BuyBank()
     {
-        uýmanager = GameManager.Instance.UIManager;
-    }
-
-    private void Update()
-    {
-        _money = float.Parse(GameManager.Instance.MoneyManager.GetTotalMoney());
-        
-    }
-
-
-    public void BankCount()
-    {
-        if (_money > _bankfee)
+        if (AAmountPool.money > _bankfee)
         {
-            _bankfee += 1;
-            _money -= _bankfee;
-            GameManager.Instance.UIManager.money = _money;
-            uýmanager.bankcount.text = "+ " + _bankcount.ToString();
+            AAmountPool.bankcount += 1;
+            AAmountPool.money -= _bankfee;
+            UIManager.Instance.bankcount.text =AAmountPool.bankcount.ToString();
             _bankfee += 100;
-            uýmanager.bankfee.text = _bankfee.ToString() + " TL";
+            UIManager.Instance.bankfee.text = _bankfee.ToString() + " TL";
         }
     }
 
-    public void NuclearCount()
+    public void BuyNuclear()
     {
-        if (_money > _nuclearfee)
+        if (AAmountPool.money > _nuclearfee)
         {
-            _nuclearcount += 1;
-            _money -= _nuclearfee;
-            GameManager.Instance.UIManager.money = _money;
-            uýmanager.nuclearcount.text = "+ " + _nuclearcount.ToString();
+            AAmountPool.nuclearcount += 1;
+            AAmountPool.money -= _nuclearfee;
+            UIManager.Instance.nuclearcount.text = AAmountPool.nuclearcount.ToString();
             _nuclearfee += 100;
-            uýmanager.nuclearfee.text= _nuclearfee.ToString() + " TL";
+            UIManager.Instance.nuclearfee.text = _nuclearfee.ToString() + " TL";
         }
-        
+
 
 
 
     }
 
-    public void OilCount()
+    public void BuyGasoline()
     {
-        if (_money > _oilfee)
+        if (AAmountPool.money > _oilfee)
         {
-            _oilcount += 1;
-            _money -= _oilfee;
-            GameManager.Instance.UIManager.money = _money;
-            uýmanager.oilcount.text = "+ " + _oilcount.ToString();
+            AAmountPool.gasolinecount += 1;
+            AAmountPool.money -= _oilfee;
+            UIManager.Instance.oilcount.text = AAmountPool.gasolinecount.ToString();
             _oilfee += 100;
-            uýmanager.oilfee.text = _oilfee.ToString() + " TL";
+            UIManager.Instance.oilfee.text = _oilfee.ToString() + " TL";
         }
     }
 
-     
+
 }

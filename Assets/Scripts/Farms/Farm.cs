@@ -4,10 +4,10 @@ using UnityEngine;
 
 public interface Farm 
 {
-    public void BankCount();
+    public void BuyBank();
 
-    public void NuclearCount();
+    public void BuyNuclear();
 
-    public void OilCount();
+    public void BuyGasoline();
     
 }

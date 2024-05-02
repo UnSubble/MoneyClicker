@@ -13,9 +13,10 @@ public class OnMouseClickListener : MonoBehaviour
 
     public event GameEventManager OnclickButton;
   
-    Animator anim;
-
+    
     public LayerMask _targetlayer;
+
+    
 
 
     private void Start()
@@ -29,9 +30,10 @@ public class OnMouseClickListener : MonoBehaviour
     {
 
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-       
-       
+
+        Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        clickPosition.z = 0;
+
 
         //if (Input.GetMouseButtonDown(0) && _isCollide)
         //{
@@ -40,19 +42,18 @@ public class OnMouseClickListener : MonoBehaviour
         //    GameManager.Instance.EventHandler.Enqueue(event_);
         //}
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, _targetlayer);
 
             if (hit.collider != null)
-            { 
-                GameManager.Instance.UIManager.UpdateMoney();
-                
+            {
+                UIManager.Instance.UpdateMoney();
+               
             }
+            
         }
-
-        
 
     }
 

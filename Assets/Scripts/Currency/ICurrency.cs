@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ICurrency : MonoBehaviour
+public interface ICurrency 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
+    public void CurrencyDolar();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+    public void CurrencyEuro();
+
+    public void CurrencyBitcoin();
+
+    public string UpdateDollar();
+
+    public string UpdateBitcoin();
+
+    public string UpdateEuro();
+
+   
+
+
+
+
+
+
 }

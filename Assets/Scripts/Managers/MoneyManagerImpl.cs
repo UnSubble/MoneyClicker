@@ -2,6 +2,7 @@ public class MoneyManagerImpl : MoneyManager
 {
     private Formatter _formatter;
     private NumberFormat _currentFormat;
+    
 
     //public MoneyManagerImpl()
     //{
@@ -26,7 +27,12 @@ public class MoneyManagerImpl : MoneyManager
 
     public string GetTotalMoney()
     {
-        return GameManager.Instance.UIManager.money.ToString();
+        return AAmountPool.money.ToString();
+    }
+
+    public float GetMoney()
+    {
+        return AAmountPool.money;
     }
 
     public bool UpgradeBuilding(Building building)
