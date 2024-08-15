@@ -12,11 +12,7 @@ public interface ICurrency
 
     public void CurrencyBitcoin();
 
-    public string UpdateDollar();
-
-    public string UpdateBitcoin();
-
-    public string UpdateEuro();
+    
 
    
 

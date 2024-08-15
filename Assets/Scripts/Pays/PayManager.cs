@@ -8,109 +8,76 @@ using UnityEngine;
 
 public class Paymanager : MonoBehaviour, Pay
 {
-    
-    
-    float billcooldown = 0, billupdatetimer = 2f, resetbill = 0;
-    bool isresetbill;
-    
 
-    
-    FarmManager farmmanager; 
-   
-    
-
-    private void Start()
+    void Start()
     {
-        
-        farmmanager = GameManager.Instance.FarmManager;
-
-    }
-
-    IEnumerator Resetbill()
-    {
-        yield return new WaitForSeconds(.5f);
-        isresetbill = false;
+        StartCoroutine(UpdatePays());
     }
 
 
-    void Update()
+    IEnumerator UpdatePays()
     {
-
-
-        AAmountPool.money = float.Parse(GameManager.Instance.MoneyManager.GetTotalMoney());
-
-        
-
-        UpdatePays();
-
-    }
-
-    void UpdatePays()
-    {
-        if (Time.time - billcooldown > billupdatetimer && !isresetbill)
+        while (true)
         {
-            UIManager.Instance.rentpay.text=(AAmountPool.bankcount+AAmountPool.nuclearcount+AAmountPool.gasolinecount+AAmountPool.rentpay).ToSafeString();
-
-            //UIManager.Instance.taxpay.text =
-            //    (farmmanager._bankcount*0.03f+farmmanager._nuclearcount*0.05f+farmmanager._oilcount*0.04f+ float.Parse(UIManager.Instance.taxpay.text)).ToString();
-
-            //UIManager.Instance.employeepay.text =
-            //    (farmmanager._bankcount*0.5f+farmmanager._oilcount*0.01+farmmanager._nuclearcount*0.02+ float.Parse(UIManager.Instance.employeepay.text)).ToString();
-
-            billcooldown = Time.time;
+            PoolManager.Instance.taxpay += PoolManager.Instance.bankcount * 2f + PoolManager.Instance.gasolinecount * 5f + PoolManager.Instance.nuclearcount * 4f;
+            PoolManager.Instance.rentpay += PoolManager.Instance.bankcount + PoolManager.Instance.gasolinecount + PoolManager.Instance.nuclearcount;
+            PoolManager.Instance.employeepay += PoolManager.Instance.bankcount * 6f + PoolManager.Instance.gasolinecount * 2f + PoolManager.Instance.nuclearcount * 2f;
+            PoolManager.Instance.billpay += PoolManager.Instance.bankcount * 3f + PoolManager.Instance.gasolinecount * 4f + PoolManager.Instance.nuclearcount * 3f;
+            yield return new WaitForSeconds(2f);
         }
     }
 
-   
+
 
     public void ResetTaxPay()
     {
-        //if (_money > float.Parse(UIManager.Instance.taxpay.text))
-        //{
-        //    _money -= float.Parse(UIManager.Instance.taxpay.text);
-        //    GameManager.Instance.UIManager.money = _money;
-        //    isresetbill = true;
-        //    UIManager.Instance.taxpay.text = resetbill.ToString();
-        //    StartCoroutine(Resetbill());
-        //}
-            
+        if (PoolManager.Instance.money >= PoolManager.Instance.taxpay && !ButtonManager.Instance.isclicked)
+        {
+            AudioManager.Instance.PlayPaymentSound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.taxpay;
+            PoolManager.Instance.taxpay = 0;
+            StartCoroutine(ButtonManager.Instance.Clicked());
+        }
+
     }
 
     public void ResetRentPay()
     {
-        if (AAmountPool.money > AAmountPool.rentpay)
+        if (PoolManager.Instance.money >= PoolManager.Instance.rentpay && !ButtonManager.Instance.isclicked)
         {
-            AAmountPool.money -= AAmountPool.rentpay;
-            isresetbill = true;
-            UIManager.Instance.rentpay.text = resetbill.ToString();
-            StartCoroutine(Resetbill());
+            AudioManager.Instance.PlayPaymentSound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.rentpay;
+            PoolManager.Instance.rentpay = 0;
+            StartCoroutine(ButtonManager.Instance.Clicked());
         }
 
     }
 
     public void ResetEmployeePay()
     {
-        //if (_money > float.Parse(UIManager.Instance.employeepay.text))
-        //{
-        //    _money -= float.Parse(UIManager.Instance.employeepay.text);
-        //    GameManager.Instance.UIManager.money = _money;
-        //    isresetbill = true;
-        //    UIManager.Instance.employeepay.text = resetbill.ToString();
-        //    StartCoroutine(Resetbill());
-        //}
-            
+        if (PoolManager.Instance.money >= PoolManager.Instance.employeepay && !ButtonManager.Instance.isclicked)
+        {
+            AudioManager.Instance.PlayPaymentSound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.employeepay;
+            PoolManager.Instance.employeepay = 0;
+            StartCoroutine(ButtonManager.Instance.Clicked());
+        }
+
     }
 
     public void ResetBillPay()
     {
-        //if (_money > float.Parse(UIManager.Instance.billpay.text))
-        //{
-        //    _money -= float.Parse(UIManager.Instance.billpay.text);
-        //    GameManager.Instance.UIManager.money = _money;
-        //    isresetbill = true;
-        //    UIManager.Instance.billpay.text = resetbill.ToString();
-        //    StartCoroutine(Resetbill());
-        //}
-            
+        if (PoolManager.Instance.money >= PoolManager.Instance.billpay && !ButtonManager.Instance.isclicked)
+        {
+            AudioManager.Instance.PlayPaymentSound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.billpay;
+            PoolManager.Instance.billpay = 0;
+            StartCoroutine(ButtonManager.Instance.Clicked());
+        }
+
     }
 }

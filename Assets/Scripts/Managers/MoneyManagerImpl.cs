@@ -1,8 +1,32 @@
-public class MoneyManagerImpl : MoneyManager
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class MoneyManagerImpl : MonoBehaviour, MoneyManager
 {
     private Formatter _formatter;
     private NumberFormat _currentFormat;
-    
+
+    private void Start()
+    {
+        StartCoroutine(Demo());
+    }
+    IEnumerator Demo()
+    {
+        while (true)
+        {
+            PoolManager.Instance.money += PoolManager.Instance.autoclickcount + PoolManager.Instance.bankcount * 10 +
+                                          PoolManager.Instance.nuclearcount * 15 + PoolManager.Instance.gasolinecount * 20;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+    public void UpdateMoney()
+    {
+        PoolManager.Instance.money += PoolManager.Instance.clickcount;
+        AudioManager.Instance.PlayCoinSound();
+    }
+
+
 
     //public MoneyManagerImpl()
     //{
@@ -17,7 +41,7 @@ public class MoneyManagerImpl : MoneyManager
 
     public void AddBuilding(Building building)
     {
-        
+
     }
 
     public NumberFormat GetCurrentFormat()
@@ -27,12 +51,14 @@ public class MoneyManagerImpl : MoneyManager
 
     public string GetTotalMoney()
     {
-        return AAmountPool.money.ToString();
+        
+        return PoolManager.Instance.money.ToString();
+
     }
 
     public float GetMoney()
     {
-        return AAmountPool.money;
+        return PoolManager.Instance.money;
     }
 
     public bool UpgradeBuilding(Building building)
@@ -48,4 +74,6 @@ public class MoneyManagerImpl : MoneyManager
     {
         return _formatter;
     }
+
+
 }

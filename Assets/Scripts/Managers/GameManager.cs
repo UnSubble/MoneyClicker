@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     private ButtonManager _buttonmanager;
     [SerializeField]
     private CurrencyManager _currencymanager;
+    [SerializeField]
+    PoolManager _poolmanager;
+    [SerializeField]
+    AudioManager _audiomanager;
+    [SerializeField]
+    StoreManager _storemanager;
 
     private float _uiCheckMoneyTime;
 
@@ -47,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public Paymanager PayManager { get; private set; }
 
-    
+    public PoolManager PoolManager { get; private set; }
 
     public float UICheckMoneyTime { get { return _uiCheckMoneyTime; } }
 
@@ -60,11 +66,15 @@ public class GameManager : MonoBehaviour
     public ButtonManager ButtonManager {  get; private set; }
 
     public CurrencyManager CurrencyManager { get; private set; }
+
+    public AudioManager AudioManager { get; private set; }
+
+    public StoreManager StoreManager { get; private set; }
  
     private void Awake()
     {
         Instance = this;
-
+        
         MoneyManager = new MoneyManagerImpl(Formatter);
     }
 
@@ -72,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
         Clicker = _clicker;
         TextPopupPoolCount = _textPopupPoolCount;
         Pool = _pool;
@@ -83,9 +94,12 @@ public class GameManager : MonoBehaviour
         UIManager = _uýmanager;
         FarmManager= _farmmanager;
         CurrencyManager = _currencymanager;
-        
+        PoolManager= _poolmanager;
+        AudioManager = _audiomanager;
+        StoreManager= _storemanager;
 
         _pool.CreateNTimes(_textPopupPrefab, _textPopupParent.transform, _textPopupPoolCount);
+        
     }
 
     void Update()

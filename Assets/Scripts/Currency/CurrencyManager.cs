@@ -1,88 +1,66 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CurrencyManager : MonoBehaviour,ICurrency
+public class CurrencyManager : MonoBehaviour, ICurrency
 {
 
-    float currencycooldown = 0, currencyupdatetimer = 2f; bool isupdatecurrency;
-    IEnumerator UpdateCurrency()
+
+    public void CurrencyDolar()
     {
-        yield return new WaitForSeconds(.5f);
-        isupdatecurrency = false;
+        if (PoolManager.Instance.money >= PoolManager.Instance.dollarinstant && !ButtonManager.Instance.isclicked)
+        {
+            AudioManager.Instance.PlayCurrencySound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.dollarinstant;
+            PoolManager.Instance.dollaramount++;
+            StartCoroutine(ButtonManager.Instance.Clicked());
+        }
+
     }
-  
     public void CurrencyEuro()
     {
-        if (AAmountPool.money > AAmountPool.euroinstant)
+        if (PoolManager.Instance.money >= PoolManager.Instance.euroinstant && !ButtonManager.Instance.isclicked)
         {
-            isupdatecurrency = true;
-            AAmountPool.money -= AAmountPool.euroinstant;
-            AAmountPool.euroamount += AAmountPool.euroinstant;
-            UIManager.Instance.UpdateEuroCount();
-            StartCoroutine(UpdateCurrency());
+            AudioManager.Instance.PlayCurrencySound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.euroinstant;
+            PoolManager.Instance.euroamount++;
+            StartCoroutine(ButtonManager.Instance.Clicked());
+
         }
     }
 
     public void CurrencyBitcoin()
     {
-        if (AAmountPool.money > AAmountPool.bitcoininstant)
+        if (PoolManager.Instance.money >= PoolManager.Instance.bitcoininstant && !ButtonManager.Instance.isclicked)
         {
-            isupdatecurrency = true;
-            AAmountPool.money -= AAmountPool.bitcoininstant;
-            AAmountPool.bitcoinamount += AAmountPool.bitcoininstant;
-            UIManager.Instance.UpdateBitcoinCount();
-            StartCoroutine(UpdateCurrency());
+            AudioManager.Instance.PlayCurrencySound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.bitcoininstant;
+            PoolManager.Instance.bitcoinamount++;
+            StartCoroutine(ButtonManager.Instance.Clicked());
         }
     }
 
-    public void CurrencyDolar()
+    void Start() => StartCoroutine(UpdateCurrency());
+
+    IEnumerator UpdateCurrency()
     {
-        if(AAmountPool.money>AAmountPool.dollarinstant)
+        while (true)
         {
-            isupdatecurrency=true;
-            AAmountPool.money -=AAmountPool.dollarinstant;
-            AAmountPool.dolaramount += AAmountPool.dollarinstant;
-            UIManager.Instance.UpdateDollarCount();
-            StartCoroutine(UpdateCurrency());
-        }
-    }
-
-   
-
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        if(Time.time-currencycooldown>currencyupdatetimer &&!isupdatecurrency)
-        {
-            UpdateDollar();
-            UpdateBitcoin();
-            UpdateEuro();
-            currencycooldown = Time.time;
+            PoolManager.Instance.dollarinstant++;
+            PoolManager.Instance.euroinstant++;
+            PoolManager.Instance.bitcoininstant += 5;
+            yield return new WaitForSeconds(3f);
         }
     }
 
     
 
-    public string UpdateDollar()
-    {
-        return UIManager.Instance.dollarinstant.text = (AAmountPool.dollarinstant +1).ToSafeString() ;
-    }
-    public string UpdateBitcoin()
-    {
-        return UIManager.Instance.bitcoininstant.text = (AAmountPool.bitcoininstant +2).ToSafeString() ;
-    }
 
-    public string UpdateEuro()
-    {
-        return UIManager.Instance.euroinstant.text = (AAmountPool.euroinstant +3).ToSafeString();
-    }
 
-    
+
 }

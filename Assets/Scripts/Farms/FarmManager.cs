@@ -4,51 +4,84 @@ using UnityEngine;
 
 public class FarmManager : MonoBehaviour, Farm
 {
-    [SerializeField] 
-    
-    float _bankfee=50,_oilfee=10,_nuclearfee= 30;
-   
 
 
     public void BuyBank()
     {
-        if (AAmountPool.money > _bankfee)
+        if (PoolManager.Instance.money >= PoolManager.Instance.bankfee && !ButtonManager.Instance.isclicked)
         {
-            AAmountPool.bankcount += 1;
-            AAmountPool.money -= _bankfee;
-            UIManager.Instance.bankcount.text =AAmountPool.bankcount.ToString();
-            _bankfee += 100;
-            UIManager.Instance.bankfee.text = _bankfee.ToString() + " TL";
+            AudioManager.Instance.PlayCurrencySound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.bankfee;
+            PoolManager.Instance.bankcount++;
+            PoolManager.Instance.bankfee += PoolManager.Instance.bankcount * 100;
+            StartCoroutine(ButtonManager.Instance.Clicked());
         }
     }
 
     public void BuyNuclear()
     {
-        if (AAmountPool.money > _nuclearfee)
+        if (PoolManager.Instance.money >= PoolManager.Instance.nuclearfee && !ButtonManager.Instance.isclicked)
         {
-            AAmountPool.nuclearcount += 1;
-            AAmountPool.money -= _nuclearfee;
-            UIManager.Instance.nuclearcount.text = AAmountPool.nuclearcount.ToString();
-            _nuclearfee += 100;
-            UIManager.Instance.nuclearfee.text = _nuclearfee.ToString() + " TL";
+            AudioManager.Instance.PlayCurrencySound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.nuclearfee;
+            PoolManager.Instance.nuclearcount++;
+            PoolManager.Instance.nuclearfee += PoolManager.Instance.nuclearcount * 100;
+            StartCoroutine(ButtonManager.Instance.Clicked());
         }
-
-
-
 
     }
 
     public void BuyGasoline()
     {
-        if (AAmountPool.money > _oilfee)
+        if (PoolManager.Instance.money >= PoolManager.Instance.gasolinefee && !ButtonManager.Instance.isclicked)
         {
-            AAmountPool.gasolinecount += 1;
-            AAmountPool.money -= _oilfee;
-            UIManager.Instance.oilcount.text = AAmountPool.gasolinecount.ToString();
-            _oilfee += 100;
-            UIManager.Instance.oilfee.text = _oilfee.ToString() + " TL";
+            AudioManager.Instance.PlayCurrencySound();
+            ButtonManager.Instance.isclicked = true;
+            PoolManager.Instance.money -= PoolManager.Instance.gasolinefee;
+            PoolManager.Instance.gasolinecount++;
+            PoolManager.Instance.gasolinefee += PoolManager.Instance.gasolinecount * 100;
+            StartCoroutine(ButtonManager.Instance.Clicked());
         }
     }
 
+    void Update()
+    {
+        if (PoolManager.Instance.rentpay >= 1000f && PoolManager.Instance.bankcount>0)
+        {
+            PoolManager.Instance.bankcount--;
+            StartCoroutine(DestroyFarm());
+        }
+        else if (PoolManager.Instance.rentpay >= 2000f && PoolManager.Instance.nuclearcount > 0)
+        {
+            PoolManager.Instance.nuclearcount--;
+            StartCoroutine(DestroyFarm());
+        }
+        else if (PoolManager.Instance.rentpay >= 3000f && PoolManager.Instance.gasolinecount > 0)
+        {
+            PoolManager.Instance.gasolinecount--;
+            StartCoroutine(DestroyFarm());
+        }
 
+
+        if (PoolManager.Instance.taxpay >= 3000)
+        {
+
+        }
+        else if (PoolManager.Instance.taxpay >= 4000)
+        {
+
+
+        }
+        else if (PoolManager.Instance.taxpay >= 5000)
+        {
+
+        }
+    }
+
+    IEnumerator DestroyFarm()
+    {
+        yield return new WaitForSeconds(10f);
+    }
 }

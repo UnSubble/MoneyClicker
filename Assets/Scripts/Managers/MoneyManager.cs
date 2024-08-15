@@ -12,4 +12,9 @@ public interface MoneyManager
     public bool UpgradeBuilding(Building building);
 
     public Formatter GetFormatter();
+
+    public void UpdateMoney();
+
+    public float GetMoney();
+   
 }

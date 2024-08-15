@@ -29,7 +29,7 @@ public class OnMouseClickListener : MonoBehaviour
     void Update()
     {
 
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
 
         Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         clickPosition.z = 0;
@@ -49,8 +49,8 @@ public class OnMouseClickListener : MonoBehaviour
 
             if (hit.collider != null)
             {
-                UIManager.Instance.UpdateMoney();
-               
+                GameManager.Instance.MoneyManager.UpdateMoney();
+                
             }
             
         }
